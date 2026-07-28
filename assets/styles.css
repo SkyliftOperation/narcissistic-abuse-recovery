@@ -8,8 +8,9 @@
   --navy:        #162D4A;
   --navy-2:      #273252;
   --navy-deep:   #001E42;
-  --rose:        #D54B96;
-  --rose-dark:   #B83A80;
+  --rose:        #D54B96;   /* brand pink — accents and dark-background text */
+  --rose-dark:   #B83A80;   /* text/fills on light backgrounds: clears 4.5:1 */
+  --rose-deep:   #9C2F6B;   /* pressed / hover on filled buttons */
   --blush:       #F1BABF;
   --blush-bg:    #FCE7EC;
   --mist:        #F4F7FA;
@@ -87,10 +88,12 @@ h3{ font-size:1.3rem; line-height:1.25; }
 
 /* ─────────── shared ─────────── */
 
+/* rose-dark, not rose: at 11px the lighter tone falls under 4.5:1 on the
+   light sections. Dark sections override this to blush below. */
 .eyebrow{
   display:flex; align-items:center; gap:.85rem;
   font-size:.71rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase;
-  color:var(--rose); margin:0 0 1.15rem;
+  color:var(--rose-dark); margin:0 0 1.15rem;
 }
 .eyebrow-rule{ width:34px; height:1px; background:currentColor; flex:none; opacity:.65; }
 
@@ -105,12 +108,13 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .btn-lg{ padding:1.2rem 2.4rem; }
 .btn-sm{ padding:.62rem 1.3rem; font-size:.72rem; letter-spacing:.1em; white-space:nowrap; }
 
-.btn-rose{ background:var(--rose); color:#fff; box-shadow:0 16px 34px -16px rgba(213,75,150,.8); }
+/* filled with rose-dark, not rose: white on the lighter pink is only 3.98:1 */
+.btn-rose{ background:var(--rose-dark); color:#fff; box-shadow:0 16px 34px -16px rgba(184,58,128,.8); }
 .btn-rose::after{
-  content:""; position:absolute; inset:0; background:var(--rose-dark);
+  content:""; position:absolute; inset:0; background:var(--rose-deep);
   transform:translateY(101%); transition:transform .4s var(--ease-out); z-index:-1;
 }
-.btn-rose:hover{ transform:translateY(-3px); box-shadow:0 24px 42px -16px rgba(213,75,150,.9); }
+.btn-rose:hover{ transform:translateY(-3px); box-shadow:0 24px 42px -16px rgba(184,58,128,.9); }
 .btn-rose:hover::after{ transform:translateY(0); }
 
 .btn-ghost{ background:transparent; color:var(--navy-2); border-color:var(--blush); }
@@ -252,7 +256,7 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .hero-stats dt{
   font-family:var(--serif); font-size:2.35rem; line-height:1; color:var(--navy-2); font-weight:500;
 }
-.hero-stats dt small{ font-size:.85rem; color:var(--rose); margin-left:.15rem; }
+.hero-stats dt small{ font-size:.85rem; color:var(--rose-dark); margin-left:.15rem; }
 .hero-stats dd{
   margin:.55rem 0 0; font-size:.8rem; line-height:1.5;
   color:var(--body-soft); letter-spacing:.01em;
@@ -336,28 +340,41 @@ h3{ font-size:1.3rem; line-height:1.25; }
   display:grid; grid-template-columns:repeat(2,1fr); gap:0;
   border-top:1px solid var(--line);
 }
+/* number column is fixed so every row's text starts on the same axis;
+   padding is symmetric so nothing crowds the dividers */
 .sign{
-  display:flex; gap:1.15rem; align-items:flex-start;
-  padding:1.85rem 1.75rem 1.85rem .25rem;
+  position:relative;
+  display:grid; grid-template-columns:2.6rem 1fr; align-items:start;
+  padding:1.9rem 2rem;
   border-bottom:1px solid var(--line);
-  position:relative; transition:background-color .4s var(--ease), padding-left .4s var(--ease);
+  transition:background-color .4s var(--ease);
 }
-.sign:nth-child(odd){ border-right:1px solid var(--line); padding-right:2.5rem; }
-/* left rail that draws in on hover */
+.sign:nth-child(odd){ border-right:1px solid var(--line); }
+
+/* rail that draws down the cell edge on hover */
 .sign::before{
-  content:""; position:absolute; left:0; top:0; bottom:-1px; width:2px;
+  content:""; position:absolute; left:0; top:-1px; bottom:-1px; width:2px;
   background:var(--rose); transform:scaleY(0); transform-origin:bottom;
   transition:transform .45s var(--ease);
 }
-/* small blush dot in place of the old index number */
-.sign::after{
-  content:""; flex:none; order:-1; margin-top:.62em;
-  width:7px; height:7px; border-radius:50%;
-  background:var(--blush); transition:background-color .35s, box-shadow .35s;
-}
-.sign:hover{ background:var(--mist); padding-left:1.35rem; }
+.sign:hover{ background:var(--mist); }
 .sign:hover::before{ transform:scaleY(1); transform-origin:top; }
-.sign:hover::after{ background:var(--rose); box-shadow:0 0 0 4px rgba(213,75,150,.14); }
+
+.sign-i{
+  position:relative;
+  font-family:var(--serif); font-size:1.05rem; line-height:1.58;
+  letter-spacing:.06em; color:var(--rose-dark);
+  transition:color .35s;
+}
+/* short tick tying the number to the row it labels */
+.sign-i::after{
+  content:""; position:absolute; left:0; top:2.1em;
+  width:1.15rem; height:1px; background:var(--line);
+  transition:background-color .35s, width .35s var(--ease);
+}
+.sign:hover .sign-i{ color:var(--navy-2); }
+.sign:hover .sign-i::after{ background:var(--rose); width:1.6rem; }
+
 .sign p{ margin:0; font-size:1.04rem; line-height:1.6; color:var(--navy-2); }
 
 .pull{
@@ -520,8 +537,8 @@ h3{ font-size:1.3rem; line-height:1.25; }
   display:grid; place-items:center;
   transition:transform .4s var(--ease), background-color .4s, border-color .4s;
 }
-.stop-dot b{ font-family:var(--serif); font-size:1.3rem; color:var(--rose); font-weight:500; }
-.stop:hover .stop-dot{ transform:scale(1.12); background:var(--rose); border-color:var(--rose); }
+.stop-dot b{ font-family:var(--serif); font-size:1.3rem; color:var(--rose-dark); font-weight:500; }
+.stop:hover .stop-dot{ transform:scale(1.12); background:var(--rose-dark); border-color:var(--rose-dark); }
 .stop:hover .stop-dot b{ color:#fff; }
 .stop h3{ margin-bottom:.55rem; }
 .stop p{ margin:0; font-size:.98rem; }
@@ -538,15 +555,15 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .avatar{
   width:44px; height:44px; flex:none; border-radius:50%;
   display:grid; place-items:center;
-  background:var(--blush-bg); color:var(--rose);
+  background:var(--blush-bg); color:var(--rose-dark);
   font-family:var(--serif); font-size:1rem; font-weight:600; letter-spacing:.04em;
 }
 .who{ display:flex; flex-direction:column; line-height:1.35; min-width:0; }
 .who strong{
   font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--rose);
+  color:var(--rose-dark);
 }
-.who em{ font-style:normal; font-size:.79rem; color:var(--body-soft); }
+.who em{ font-style:normal; font-size:.79rem; color:var(--body); }
 
 /* the headline testimonial */
 .quote-hero{
@@ -684,7 +701,7 @@ h3{ font-size:1.3rem; line-height:1.25; }
   .head-split{ grid-template-columns:1fr; align-items:start; gap:1.25rem; }
   .head-note{ font-size:.98rem; }
   .sign-list{ grid-template-columns:1fr; }
-  .sign:nth-child(odd){ border-right:none; padding-right:1.75rem; }
+  .sign:nth-child(odd){ border-right:none; }
   .path{ grid-template-columns:1fr; gap:2.25rem; }
   .path::before{ display:none; }
   .stop{ display:grid; grid-template-columns:52px 1fr; gap:1.15rem; text-align:left; padding:0; }
@@ -753,8 +770,7 @@ h3{ font-size:1.3rem; line-height:1.25; }
   .frame-offset{ inset:1rem -1rem -1rem 1rem; }
 
   /* signs + pull quote */
-  .sign{ padding:1.5rem 1.25rem 1.5rem .25rem; gap:1rem; }
-  .sign:hover{ padding-left:1rem; }
+  .sign{ grid-template-columns:2.1rem 1fr; padding:1.5rem 1.15rem; }
   .sign p{ font-size:.99rem; }
   .pull{ max-width:none; font-size:1.45rem; }
 
