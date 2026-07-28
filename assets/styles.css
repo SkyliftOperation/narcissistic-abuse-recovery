@@ -856,6 +856,13 @@ h3{ font-size:1.3rem; line-height:1.25; }
 @media (max-width:380px){
   .mb-call span{ display:none; }        /* icon only on the narrowest phones */
   .mb-call{ padding-inline:1rem; }
+  .btn-sm{ padding:.75rem .9rem; font-size:.63rem; letter-spacing:.06em; }
+}
+
+/* Below this the full "Book free call" label and the coach's name cannot
+   share a row, so the wordmark drops to the monogram and the CTA wins. */
+@media (max-width:345px){
+  .brand-text{ display:none; }
 }
 
 @media (prefers-reduced-motion:reduce){
