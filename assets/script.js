@@ -80,53 +80,6 @@
     });
   });
 
-  /* ── testimonial rail: buttons, drag to scroll ── */
-  var rail = document.getElementById('rail');
-  if (rail) {
-    var step = function () {
-      var card = rail.querySelector('.card-q');
-      return card ? card.offsetWidth + 20 : 380;
-    };
-
-    document.querySelectorAll('[data-rail]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var dir = btn.getAttribute('data-rail') === 'next' ? 1 : -1;
-        rail.scrollBy({ left: dir * step(), behavior: 'smooth' });
-      });
-    });
-
-    var down = false, startX = 0, startLeft = 0, moved = 0;
-
-    rail.addEventListener('pointerdown', function (e) {
-      if (e.pointerType === 'touch') return;   /* let native touch scrolling win */
-      down = true; moved = 0;
-      startX = e.clientX;
-      startLeft = rail.scrollLeft;
-      rail.classList.add('dragging');
-    });
-
-    rail.addEventListener('pointermove', function (e) {
-      if (!down) return;
-      var dx = e.clientX - startX;
-      moved = Math.abs(dx);
-      rail.scrollLeft = startLeft - dx;
-    });
-
-    var release = function () {
-      if (!down) return;
-      down = false;
-      rail.classList.remove('dragging');
-    };
-    rail.addEventListener('pointerup', release);
-    rail.addEventListener('pointerleave', release);
-    rail.addEventListener('pointercancel', release);
-
-    /* A drag should never trigger a link inside a card. */
-    rail.addEventListener('click', function (e) {
-      if (moved > 6) { e.preventDefault(); e.stopPropagation(); }
-    }, true);
-  }
-
   /* ── reveal on scroll ── */
   var items = document.querySelectorAll('.reveal');
   var revealed = 0;
