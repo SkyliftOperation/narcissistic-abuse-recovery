@@ -4,20 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Narcissistic Abuse Recovery Coaching | Alejandra Festinger</title>
-<meta name="description" content="One-to-one narcissistic abuse recovery coaching with Alejandra Festinger. Break the trauma bond, quiet the self-doubt and rebuild your sense of self. Free 20-minute intro call.">
+<meta name="description" content="One-to-one narcissistic abuse recovery coaching with Alejandra Festinger. Break the trauma bond, quiet the self-doubt and come back into focus. Free 20-minute intro call.">
 <link rel="canonical" href="https://codependencylifecoach.com/narcissistic-abuse-recovery/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Narcissistic Abuse Recovery Coaching | Alejandra Festinger">
-<meta property="og:description" content="You are not too sensitive. You were manipulated — and you can recover. Free 20-minute intro call.">
+<meta property="og:description" content="You are not too sensitive. You were manipulated — and you can come back into focus.">
 <meta property="og:image" content="images/alejandra.webp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#162D4A">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23162D4A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23F1BABF' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23162D4A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23F1BABF' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 
 <script type="application/ld+json">
@@ -38,6 +39,18 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- fine film grain over the whole page -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- reading progress -->
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- safety: leave the page instantly -->
+<button class="quick-exit" id="quickExit" type="button" title="Leave this site immediately (or press Escape twice)">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5M15 8l4 4-4 4M19 12H9"/></svg>
+  Quick exit
+</button>
+
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="#top">
@@ -48,11 +61,11 @@
       </span>
     </a>
     <nav class="site-nav" aria-label="Primary">
-      <a href="#signs">The Signs</a>
-      <a href="#work">How We Work</a>
-      <a href="#about">About</a>
-      <a href="#stories">Stories</a>
-      <a href="#faq">FAQ</a>
+      <a href="#signs"><span>01</span>The Signs</a>
+      <a href="#why"><span>02</span>Why It Holds</a>
+      <a href="#work"><span>03</span>The Work</a>
+      <a href="#about"><span>04</span>About</a>
+      <a href="#stories"><span>05</span>Stories</a>
     </nav>
     <div class="header-cta">
       <a class="phone" href="tel:+17206040668">720-604-0668</a>
@@ -63,346 +76,434 @@
 
 <main id="main">
 
-  <!-- ───────────────────────── HERO ───────────────────────── -->
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
   <section class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="mesh" aria-hidden="true"><i></i><i></i><i></i></div>
+
     <div class="wrap hero-grid">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Narcissistic Abuse Recovery Coaching</p>
-        <h1>You are not <em>too sensitive.</em><br>You were manipulated — and you <em>can</em> recover.</h1>
-        <p class="lede">
-          One-to-one coaching for people rebuilding after a narcissistic partner, parent or family member.
-          We name what actually happened to you, break the trauma bond, and bring you back to a self you
-          recognise again.
+      <div class="hero-copy">
+        <p class="eyebrow line-in">
+          <span class="eyebrow-rule"></span>Narcissistic Abuse Recovery
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-rose" href="https://calendly.com/cleofestinger/call" target="_blank" rel="noopener">
-            Book Your Free 20-Minute Call
+
+        <h1 class="display">
+          <span class="word w1">You are not</span>
+          <span class="word w2"><em>too sensitive.</em></span>
+          <span class="word w3">You were</span>
+          <span class="word w4 blurred">manipulated</span>
+          <span class="word w5">— and you can</span>
+          <span class="word w6"><em>come back into focus.</em></span>
+        </h1>
+
+        <p class="lede line-in d5">
+          One-to-one coaching for people rebuilding after a narcissistic partner, parent or
+          family member. We name what actually happened, loosen the bond that keeps pulling
+          you back, and return you to a self you recognise.
+        </p>
+
+        <div class="hero-actions line-in d6">
+          <a class="btn btn-rose btn-lg" href="https://calendly.com/cleofestinger/call" target="_blank" rel="noopener">
+            Book your free 20-minute call
           </a>
-          <a class="btn btn-ghost" href="#work">See how the work unfolds</a>
+          <a class="btn btn-quiet" href="#signs">
+            <span class="dot"></span> Start with the signs
+          </a>
         </div>
-        <ul class="hero-trust">
-          <li>Sessions online, worldwide</li>
-          <li>Certified life coach &amp; author</li>
-          <li>30+ years of lived &amp; studied recovery</li>
-        </ul>
+
+        <dl class="hero-stats line-in d7">
+          <div><dt>1992</dt><dd>the year my own recovery began</dd></div>
+          <div><dt>1:1</dt><dd>never group, never a programme</dd></div>
+          <div><dt>20<small>min</small></dt><dd>free intro call, no pressure</dd></div>
+        </dl>
       </div>
 
-      <div class="hero-media reveal">
-        <div class="hero-photo">
-          <img src="images/alejandra.webp" alt="Alejandra Festinger, narcissistic abuse recovery coach" width="720" height="880" loading="eager">
+      <div class="hero-media">
+        <div class="frame-offset" aria-hidden="true"></div>
+
+        <figure class="hero-photo">
+          <img src="images/alejandra.webp" alt="Alejandra Festinger, narcissistic abuse recovery coach" width="720" height="880" fetchpriority="high">
+        </figure>
+
+        <!-- rotating seal -->
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="sealPath" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0"/></defs>
+            <text><textPath href="#sealPath" textLength="264" lengthAdjust="spacing">FREE 20-MIN INTRO CALL · NO PRESSURE ·</textPath></text>
+          </svg>
+          <span class="seal-core">
+            <svg viewBox="0 0 24 24"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </span>
         </div>
-        <div class="hero-badge">
-          <span class="badge-num">20</span>
-          <span class="badge-text">minute intro call<br><strong>free, no pressure</strong></span>
-        </div>
+
+        <figcaption class="photo-note">
+          <strong>Alejandra Festinger</strong>
+          Certified life coach &amp; author
+        </figcaption>
       </div>
     </div>
   </section>
 
+  <!-- vocabulary marquee -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Gaslighting</span><i>•</i><span>Trauma bonding</span><i>•</i><span>Silent treatment</span><i>•</i>
-      <span>Love bombing</span><i>•</i><span>Self-abandonment</span><i>•</i><span>Hypervigilance</span><i>•</i>
-      <span>Walking on eggshells</span><i>•</i><span>Losing your voice</span><i>•</i>
-      <span>Gaslighting</span><i>•</i><span>Trauma bonding</span><i>•</i><span>Silent treatment</span><i>•</i>
-      <span>Love bombing</span><i>•</i><span>Self-abandonment</span><i>•</i><span>Hypervigilance</span><i>•</i>
-      <span>Walking on eggshells</span><i>•</i><span>Losing your voice</span><i>•</i>
+      <span>Gaslighting</span><i></i><span>Trauma bonding</span><i></i><span>Silent treatment</span><i></i>
+      <span>Love bombing</span><i></i><span>Self-abandonment</span><i></i><span>Hypervigilance</span><i></i>
+      <span>Walking on eggshells</span><i></i><span>Losing your voice</span><i></i>
+      <span>Gaslighting</span><i></i><span>Trauma bonding</span><i></i><span>Silent treatment</span><i></i>
+      <span>Love bombing</span><i></i><span>Self-abandonment</span><i></i><span>Hypervigilance</span><i></i>
+      <span>Walking on eggshells</span><i></i><span>Losing your voice</span><i></i>
     </div>
   </div>
 
-  <!-- ───────────────────────── SIGNS ───────────────────────── -->
+  <!-- ═══════════════════════ SIGNS ═══════════════════════ -->
   <section class="section signs" id="signs">
+    <span class="section-mark" aria-hidden="true">01 — The Signs</span>
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Does any of this sound like your life?</p>
-        <h2>The damage doesn't show up as bruises. It shows up as self-doubt.</h2>
-        <p class="section-sub">
-          Narcissistic abuse rarely announces itself. It arrives as confusion — the slow, quiet
-          erosion of your certainty about what is real.
+
+      <div class="head-split reveal">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span>Does this sound like your life?</p>
+          <h2 class="display">The damage doesn't show as bruises.<br>It shows as <em>self-doubt.</em></h2>
+        </div>
+        <p class="head-note">
+          Narcissistic abuse rarely announces itself. It arrives as confusion — the slow,
+          quiet erosion of your certainty about what is real.
         </p>
       </div>
 
-      <ul class="sign-grid">
-        <li class="sign reveal">You replay conversations for hours, hunting for the moment it became your fault.</li>
-        <li class="sign reveal">You apologise for things you didn't do, just to make the tension stop.</li>
-        <li class="sign reveal">You've been called dramatic, crazy, jealous, too much — until you believed it.</li>
-        <li class="sign reveal">You no longer trust your own memory of what was said.</li>
-        <li class="sign reveal">You still miss them. And you hate yourself for missing them.</li>
-        <li class="sign reveal">You got out — but the anxiety, the flinching and the self-blame came with you.</li>
-        <li class="sign reveal">You can spot everyone else's needs instantly, and can't name a single one of your own.</li>
-        <li class="sign reveal">You've done therapy, books, 12-step — and something still feels unfinished.</li>
-      </ul>
+      <ol class="sign-list">
+        <li class="sign reveal"><span class="sign-i">01</span><p>You replay conversations for hours, hunting for the moment it became your fault.</p></li>
+        <li class="sign reveal"><span class="sign-i">02</span><p>You apologise for things you didn't do, just to make the tension stop.</p></li>
+        <li class="sign reveal"><span class="sign-i">03</span><p>You've been called dramatic, jealous, crazy, too much — until you believed it.</p></li>
+        <li class="sign reveal"><span class="sign-i">04</span><p>You no longer trust your own memory of what was said.</p></li>
+        <li class="sign reveal"><span class="sign-i">05</span><p>You still miss them. And you hate yourself for missing them.</p></li>
+        <li class="sign reveal"><span class="sign-i">06</span><p>You got out — but the anxiety, the flinching and the self-blame came with you.</p></li>
+        <li class="sign reveal"><span class="sign-i">07</span><p>You read everyone else's needs instantly, and can't name one of your own.</p></li>
+        <li class="sign reveal"><span class="sign-i">08</span><p>You've done therapy, books, twelve-step — and something still feels unfinished.</p></li>
+      </ol>
 
-      <p class="signs-note reveal">
-        None of that is weakness or over-reaction.
-        <strong>Those are the fingerprints of narcissistic abuse</strong> — and they respond to the right work.
+      <p class="pull reveal">
+        None of that is weakness or over-reaction. Those are the
+        <em>fingerprints of narcissistic abuse</em> — and they respond to the right work.
       </p>
     </div>
   </section>
 
-  <!-- ───────────────────── WHY IT STICKS ───────────────────── -->
-  <section class="section why">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Why you can't just "get over it"</p>
-        <h2>You're not failing at healing. You're up against biology.</h2>
+  <!-- ═══════════════════════ WHY ═══════════════════════ -->
+  <section class="section why" id="why">
+    <span class="section-mark light" aria-hidden="true">02 — Why It Holds</span>
+    <div class="wrap why-grid">
+
+      <div class="why-sticky">
+        <p class="eyebrow"><span class="eyebrow-rule"></span>Why you can't just "get over it"</p>
+        <h2 class="display">You're not failing at healing.<br>You're up against <em>biology.</em></h2>
+        <p class="why-note">
+          Four forces keep survivors stuck — and not one of them is a character flaw.
+          Each responds to a different kind of work.
+        </p>
+        <a class="btn btn-outline-light" href="#work">See how we work on them</a>
       </div>
 
-      <div class="why-grid">
-        <article class="card reveal">
-          <span class="card-num">01</span>
+      <div class="why-stack">
+        <article class="slab reveal">
+          <span class="slab-num">01</span>
           <h3>The trauma bond</h3>
-          <p>
-            Unpredictable cruelty followed by sudden warmth creates one of the strongest attachments
-            the human brain can form. Missing them isn't proof it was love. It's proof the bond
-            was engineered.
-          </p>
+          <p>Unpredictable cruelty followed by sudden warmth creates one of the strongest attachments the human brain can form. Missing them isn't proof it was love. It's proof the bond was engineered.</p>
         </article>
-        <article class="card reveal">
-          <span class="card-num">02</span>
+        <article class="slab reveal">
+          <span class="slab-num">02</span>
           <h3>Cognitive dissonance</h3>
-          <p>
-            You hold two incompatible truths — "they hurt me" and "they're the only one who understands me."
-            Your mind resolves the conflict the cheapest way it can: by blaming you.
-          </p>
+          <p>You hold two incompatible truths — "they hurt me" and "they're the only one who understands me." Your mind resolves the conflict the cheapest way it can: by blaming you.</p>
         </article>
-        <article class="card reveal">
-          <span class="card-num">03</span>
+        <article class="slab reveal">
+          <span class="slab-num">03</span>
           <h3>A nervous system stuck on</h3>
-          <p>
-            Years of scanning for the next mood shift leaves your body braced long after the danger
-            has gone. Insight alone won't switch that off — the body has to be taught safety again.
-          </p>
+          <p>Years of scanning for the next mood shift leaves your body braced long after the danger has gone. Insight alone won't switch that off — the body has to be taught safety again.</p>
         </article>
-        <article class="card reveal">
-          <span class="card-num">04</span>
+        <article class="slab reveal">
+          <span class="slab-num">04</span>
           <h3>Shame that was never yours</h3>
-          <p>
-            Their contempt was installed as your inner voice. Until that voice is separated out and
-            named, every attempt at boundaries feels like cruelty on your part.
-          </p>
+          <p>Their contempt was installed as your inner voice. Until that voice is separated out and named, every attempt at a boundary feels like cruelty on your part.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────── WORK ───────────────────────── -->
+  <!-- ═══════════════════════ WORK ═══════════════════════ -->
   <section class="section work" id="work">
+    <span class="section-mark" aria-hidden="true">03 — The Work</span>
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">The approach</p>
-        <h2>Healing from the inside out</h2>
-        <p class="section-sub">
-          This is not traditional talk therapy and it isn't advice-giving. It's structured,
-          practical recovery work — done together, at your pace.
+
+      <div class="head-split reveal">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span>The approach</p>
+          <h2 class="display">Healing from the <em>inside out</em></h2>
+        </div>
+        <p class="head-note">
+          Not traditional talk therapy, and not advice-giving. Structured, practical
+          recovery work — done together, at your pace.
         </p>
       </div>
 
-      <div class="pillars">
-        <div class="pillar reveal"><h3>Understanding narcissistic abuse</h3><p>Language for what happened, so the confusion finally has a shape you can work with.</p></div>
-        <div class="pillar reveal"><h3>Breaking the trauma bond</h3><p>Loosening the pull — whether you've left, are planning to, or are still in it.</p></div>
-        <div class="pillar reveal"><h3>Nervous system regulation</h3><p>Teaching a braced body that the threat has passed, so calm stops feeling unfamiliar.</p></div>
-        <div class="pillar reveal"><h3>Shame healing &amp; belief rewiring</h3><p>Separating their voice from yours, and dismantling the beliefs it left behind.</p></div>
-        <div class="pillar reveal"><h3>Inner-child healing</h3><p>Reaching the earlier wound that made the dynamic feel familiar in the first place.</p></div>
-        <div class="pillar reveal"><h3>Boundaries without guilt</h3><p>Saying no, going low-contact or grey-rock — without collapsing into self-blame.</p></div>
+      <div class="ledger">
+        <article class="entry reveal">
+          <span class="entry-n">01</span>
+          <h3>Understanding narcissistic abuse</h3>
+          <p>Language for what happened, so the confusion finally has a shape you can work with.</p>
+        </article>
+        <article class="entry reveal">
+          <span class="entry-n">02</span>
+          <h3>Breaking the trauma bond</h3>
+          <p>Loosening the pull — whether you've left, are planning to, or are still in it.</p>
+        </article>
+        <article class="entry reveal">
+          <span class="entry-n">03</span>
+          <h3>Nervous system regulation</h3>
+          <p>Teaching a braced body that the threat has passed, so calm stops feeling unfamiliar.</p>
+        </article>
+        <article class="entry reveal">
+          <span class="entry-n">04</span>
+          <h3>Shame healing &amp; belief rewiring</h3>
+          <p>Separating their voice from yours, and dismantling the beliefs it left behind.</p>
+        </article>
+        <article class="entry reveal">
+          <span class="entry-n">05</span>
+          <h3>Inner-child healing</h3>
+          <p>Reaching the earlier wound that made the dynamic feel familiar in the first place.</p>
+        </article>
+        <article class="entry reveal">
+          <span class="entry-n">06</span>
+          <h3>Boundaries without guilt</h3>
+          <p>Saying no, going low-contact or grey-rock — without collapsing into self-blame.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────── TRANSFORMATION ───────────────────── -->
+  <!-- ═══════════════════════ SHIFT ═══════════════════════ -->
   <section class="section shift">
+    <span class="section-mark light" aria-hidden="true">04 — What Changes</span>
+    <div class="mesh dark" aria-hidden="true"><i></i><i></i></div>
     <div class="wrap">
       <div class="section-head light reveal">
-        <p class="eyebrow">What's possible for you</p>
-        <h2>Imagine living free, peaceful and empowered</h2>
+        <p class="eyebrow"><span class="eyebrow-rule"></span>What's possible for you</p>
+        <h2 class="display">Imagine living free,<br>peaceful and <em>empowered</em></h2>
       </div>
 
-      <div class="shift-table reveal">
-        <div class="shift-head"><span>Where you are now</span><span>Where this work leads</span></div>
-        <div class="shift-row"><span>Constant people-pleasing</span><span>Healthy, confident boundaries</span></div>
-        <div class="shift-row"><span>Fear of abandonment</span><span>Inner peace and self-trust</span></div>
-        <div class="shift-row"><span>Drawn to toxic partners</span><span>Healthy, reciprocal relationships</span></div>
-        <div class="shift-row"><span>Living in shame &amp; self-blame</span><span>Living with compassion &amp; self-respect</span></div>
-        <div class="shift-row"><span>Panic, anxiety, emotional chaos</span><span>Emotional clarity and groundedness</span></div>
-        <div class="shift-row"><span>Feeling "not enough"</span><span>Knowing your worth</span></div>
+      <div class="ledger-shift">
+        <div class="shift-legend" aria-hidden="true"><span>Now</span><span>After the work</span></div>
+        <div class="srow reveal"><span class="was">Constant people-pleasing</span><span class="arrow"></span><span class="now">Healthy, confident boundaries</span></div>
+        <div class="srow reveal"><span class="was">Fear of abandonment</span><span class="arrow"></span><span class="now">Inner peace and self-trust</span></div>
+        <div class="srow reveal"><span class="was">Drawn to toxic partners</span><span class="arrow"></span><span class="now">Healthy, reciprocal relationships</span></div>
+        <div class="srow reveal"><span class="was">Living in shame &amp; self-blame</span><span class="arrow"></span><span class="now">Compassion &amp; self-respect</span></div>
+        <div class="srow reveal"><span class="was">Panic, anxiety, emotional chaos</span><span class="arrow"></span><span class="now">Clarity and groundedness</span></div>
+        <div class="srow reveal"><span class="was">Feeling "not enough"</span><span class="arrow"></span><span class="now">Knowing your worth</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────── ABOUT ───────────────────────── -->
+  <!-- ═══════════════════════ ABOUT ═══════════════════════ -->
   <section class="section about" id="about">
+    <span class="section-mark" aria-hidden="true">05 — About</span>
     <div class="wrap about-grid">
+
       <div class="about-media reveal">
-        <img src="images/alejandra-about.jpg" alt="Alejandra Festinger" width="640" height="760" loading="lazy">
-        <div class="about-stamp">Since<strong>1992</strong></div>
+        <div class="about-frame">
+          <img src="images/alejandra-about.jpg" alt="Alejandra Festinger" width="640" height="760" loading="lazy">
+        </div>
+        <div class="year-stamp"><small>Since</small><strong>1992</strong></div>
       </div>
+
       <div class="about-copy reveal">
-        <p class="eyebrow">About Alejandra</p>
-        <h2>My healing journey became my life's work</h2>
-        <p>
-          It began in 1992, after a three-year relationship with a malignant narcissist. The emotional
-          devastation cracked me open — and pushed me into a lifetime of self-discovery, inner work
-          and spiritual healing.
+        <p class="eyebrow"><span class="eyebrow-rule"></span>About Alejandra</p>
+        <h2 class="display">My healing journey became<br>my <em>life's work</em></h2>
+
+        <p class="drop">
+          It began in 1992, after a three-year relationship with a malignant narcissist.
+          The emotional devastation cracked me open — and pushed me into a lifetime of
+          self-discovery, inner work and spiritual healing.
         </p>
         <p>For decades I immersed myself in the work, not just the theory:</p>
+
         <ul class="tick-list">
-          <li>12-step recovery programmes</li>
+          <li>Twelve-step recovery programmes</li>
           <li>Trauma and codependency education</li>
           <li>Coaching methodologies and mentorship</li>
           <li>Assisting in countless therapy sessions</li>
           <li>Studying narcissistic abuse and relational trauma</li>
           <li>Spiritual practice and mind–body integration</li>
         </ul>
+
         <p>
-          Today I'm a certified life coach and author, working one-to-one with people recovering from
-          narcissistic abuse, codependency and childhood trauma.
+          Today I'm a certified life coach and author, working one-to-one with people
+          recovering from narcissistic abuse, codependency and childhood trauma.
         </p>
-        <blockquote>
-          My mission is simple: to help you transcend your wounds, reclaim your voice,
-          and come home to yourself.
+
+        <blockquote class="mission">
+          My mission is simple: to help you transcend your wounds,
+          reclaim your voice, and come home to yourself.
         </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────── STEPS ───────────────────────── -->
+  <!-- ═══════════════════════ STEPS ═══════════════════════ -->
   <section class="section steps">
+    <span class="section-mark" aria-hidden="true">06 — How It Works</span>
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">How it works</p>
-        <h2>Three steps, starting with a conversation</h2>
+        <p class="eyebrow"><span class="eyebrow-rule"></span>How it works</p>
+        <h2 class="display">Three steps, starting with<br>a <em>conversation</em></h2>
       </div>
-      <ol class="step-list">
-        <li class="step reveal">
-          <span class="step-num">1</span>
+
+      <ol class="path">
+        <li class="stop reveal">
+          <span class="stop-dot"><b>1</b></span>
           <h3>Book a free discovery call</h3>
           <p>Twenty minutes. We talk about what you've been through, what you want, and whether I'm the right person to support it. No script, no pressure.</p>
         </li>
-        <li class="step reveal">
-          <span class="step-num">2</span>
+        <li class="stop reveal">
+          <span class="stop-dot"><b>2</b></span>
           <h3>Receive a personalised plan</h3>
           <p>A clear roadmap built around your story — your inner-child wounds, attachment patterns and the specific dynamic you're recovering from.</p>
         </li>
-        <li class="step reveal">
-          <span class="step-num">3</span>
+        <li class="stop reveal">
+          <span class="stop-dot"><b>3</b></span>
           <h3>Begin your transformation</h3>
-          <p>We meet weekly or fortnightly. You get tools, mindset shifts, steady emotional support and deep healing work — between sessions as well as in them.</p>
+          <p>We meet weekly or fortnightly. Tools, mindset shifts, steady support and deep healing work — between sessions as well as in them.</p>
         </li>
       </ol>
+
       <div class="steps-cta reveal">
-        <a class="btn btn-rose" href="https://calendly.com/cleofestinger/call" target="_blank" rel="noopener">Book the free 20-minute call</a>
+        <a class="btn btn-rose btn-lg" href="https://calendly.com/cleofestinger/call" target="_blank" rel="noopener">Book the free 20-minute call</a>
         <p class="fineprint">I do not accept insurance. The introductory call is complimentary.</p>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────── TESTIMONIALS ───────────────────── -->
+  <!-- ═══════════════════════ STORIES ═══════════════════════ -->
   <section class="section stories" id="stories">
+    <span class="section-mark" aria-hidden="true">07 — Stories</span>
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Client stories</p>
-        <h2>People who felt exactly where you are</h2>
+      <div class="head-split reveal">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span>Client stories</p>
+          <h2 class="display">People who felt exactly<br><em>where you are</em></h2>
+        </div>
+        <div class="rail-nav">
+          <button type="button" class="rail-btn" data-rail="prev" aria-label="Previous story">
+            <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button type="button" class="rail-btn" data-rail="next" aria-label="Next story">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
+    </div>
 
-      <div class="quote-row">
-        <figure class="quote quote-sm reveal">
-          <blockquote>Working with Alejandra changed my life. For the first time, I understand myself and why I chose toxic partners. I finally feel free.</blockquote>
-          <figcaption>M.R.</figcaption>
-        </figure>
-        <figure class="quote quote-sm reveal">
-          <blockquote>I didn't know healing could feel this safe. Alejandra's compassion helped me find my voice again.</blockquote>
-          <figcaption>L.S.</figcaption>
-        </figure>
-      </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Client testimonials, scrollable">
+      <figure class="card-q feature">
+        <blockquote>Working with Alejandra changed my life. For the first time, I understand myself and why I chose toxic partners. I finally feel free.</blockquote>
+        <figcaption>M.R.<span>Client</span></figcaption>
+      </figure>
 
-      <div class="quote-grid">
-        <figure class="quote reveal">
-          <blockquote>
-            I have struggled my whole life with feeling alone, unloved and fearful. I have gone to many
-            counselors and therapists in my 53 years, yet I still struggled to have peace. It wasn't until
-            I worked with Alejandra that I was able to get free from these dysfunctional childhood lies
-            implanted in me by my family. She gives tools that cut straight to the root of the issue.
-            She has walked the walk.
-          </blockquote>
-          <figcaption>Sophie <span>Licensed Professional Counselor, MA, LPC, PEL, CLC</span></figcaption>
-        </figure>
-        <figure class="quote reveal">
-          <blockquote>
-            I came from a place of deep trauma, wounds, anxiety and depression. I grew up in a very broken
-            home with alcoholic and narcissistic parents, and I was repeating patterns from my childhood
-            programming. Alejandra helped me work through it, helped me recognise that I am enough, and
-            completely changed my perspective on the world.
-          </blockquote>
-          <figcaption>Jessica <span>Client</span></figcaption>
-        </figure>
-        <figure class="quote reveal">
-          <blockquote>
-            I was very codependent with my family — although I'm a 30-year-old woman, I felt and was
-            treated like a 10-year-old girl. I had a very difficult time setting boundaries. The amount of
-            peace I feel today is something I never imagined I could have. I don't have to feel the shame
-            and guilt I once felt.
-          </blockquote>
-          <figcaption>Rachel <span>Client</span></figcaption>
-        </figure>
-      </div>
+      <figure class="card-q">
+        <blockquote>
+          I have struggled my whole life with feeling alone, unloved and fearful. I have gone to many
+          counselors and therapists in my 53 years, yet I still struggled to have peace. It wasn't
+          until I worked with Alejandra that I got free from the dysfunctional childhood lies
+          implanted in me by my family. She gives tools that cut straight to the root. She has
+          walked the walk.
+        </blockquote>
+        <figcaption>Sophie<span>Licensed Professional Counselor, MA, LPC, PEL, CLC</span></figcaption>
+      </figure>
+
+      <figure class="card-q">
+        <blockquote>
+          I came from a place of deep trauma, anxiety and depression. I grew up in a very broken home
+          with alcoholic and narcissistic parents, repeating patterns from my childhood programming.
+          Alejandra helped me work through it, helped me recognise that I am enough, and completely
+          changed my perspective on the world.
+        </blockquote>
+        <figcaption>Jessica<span>Client</span></figcaption>
+      </figure>
+
+      <figure class="card-q">
+        <blockquote>
+          I was very codependent with my family — although I'm a 30-year-old woman, I felt and was
+          treated like a 10-year-old girl. I had a very difficult time setting boundaries. The peace
+          I feel today is something I never imagined I could have. I don't have to carry the shame
+          and guilt I once felt.
+        </blockquote>
+        <figcaption>Rachel<span>Client</span></figcaption>
+      </figure>
+
+      <figure class="card-q feature">
+        <blockquote>I didn't know healing could feel this safe. Alejandra's compassion helped me find my voice again.</blockquote>
+        <figcaption>L.S.<span>Client</span></figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ───────────────────────── FAQ ───────────────────────── -->
+  <!-- ═══════════════════════ FAQ ═══════════════════════ -->
   <section class="section faq" id="faq">
-    <div class="wrap faq-wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Questions people ask first</p>
-        <h2>Before you book</h2>
+    <span class="section-mark" aria-hidden="true">08 — Questions</span>
+    <div class="wrap faq-grid">
+
+      <div class="faq-aside reveal">
+        <p class="eyebrow"><span class="eyebrow-rule"></span>Before you book</p>
+        <h2 class="display">Questions people<br>ask <em>first</em></h2>
+        <p class="faq-help">
+          Still unsure? The intro call exists exactly for this — bring the question there.
+        </p>
+        <a class="btn btn-ghost" href="https://calendly.com/cleofestinger/call" target="_blank" rel="noopener">Ask on a free call</a>
       </div>
 
       <div class="faq-list reveal">
         <details>
           <summary>Do I have to leave my narcissistic partner before starting?</summary>
-          <p>Not at all. Many clients start while still in the relationship. We focus on clarity, boundaries and inner strength — decisions come later, and they come from you.</p>
+          <div><p>Not at all. Many clients start while still in the relationship. We focus on clarity, boundaries and inner strength — decisions come later, and they come from you.</p></div>
         </details>
         <details>
           <summary>Is coaching the same as therapy?</summary>
-          <p>No. Coaching focuses on growth, new patterns and forward movement. Therapy often focuses on processing the past. Both are valuable — coaching accelerates practical transformation. This is coaching, not mental health treatment.</p>
+          <div><p>No. Coaching focuses on growth, new patterns and forward movement. Therapy often focuses on processing the past. Both are valuable — coaching accelerates practical transformation. This is coaching, not mental health treatment.</p></div>
         </details>
         <details>
-          <summary>What if I've already done 12-step or therapy?</summary>
-          <p>Many of my clients have — and they come to me because something still feels unresolved. My approach fills in the missing emotional and spiritual pieces those routes often leave open.</p>
+          <summary>What if I've already done twelve-step or therapy?</summary>
+          <div><p>Many of my clients have — and they come to me because something still feels unresolved. My approach fills in the emotional and spiritual pieces those routes often leave open.</p></div>
         </details>
         <details>
           <summary>What if I'm not certain it was "real" abuse?</summary>
-          <p>That doubt is one of the most common after-effects there is. You don't need a diagnosis, proof or a label to start. You only need to know that something isn't right.</p>
+          <div><p>That doubt is one of the most common after-effects there is. You don't need a diagnosis, proof or a label to start. You only need to know that something isn't right.</p></div>
         </details>
         <details>
           <summary>How long before I notice a change?</summary>
-          <p>Clients often feel shifts within the first few sessions — usually in self-blame and clarity first, then in how their body responds to conflict.</p>
+          <div><p>Clients often feel shifts within the first few sessions — usually in self-blame and clarity first, then in how the body responds to conflict.</p></div>
         </details>
         <details>
           <summary>Do you take insurance?</summary>
-          <p>I don't accept insurance. The initial 20-minute discovery call is complimentary, and we'll discuss the details of working together on that call.</p>
+          <div><p>I don't accept insurance. The initial 20-minute discovery call is complimentary, and we'll discuss the details of working together on that call.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────── FINAL CTA ───────────────────────── -->
+  <!-- ═══════════════════════ FINAL CTA ═══════════════════════ -->
   <section class="section final-cta">
-    <div class="wrap final-grid">
-      <div class="final-copy reveal">
-        <h2>You deserve to feel free, loved and whole</h2>
-        <p>
-          Healing is not only possible — it's waiting for you. You are worthy of peace.
-          You are worthy of healthy love. You are worthy of coming home to yourself.
-        </p>
-        <p class="final-sign">I would be honoured to walk beside you.</p>
-        <div class="hero-actions">
-          <a class="btn btn-rose" href="https://calendly.com/cleofestinger/call" target="_blank" rel="noopener">Book Your Free 20-Minute Call</a>
-          <a class="btn btn-outline-light" href="tel:+17206040668">Call 720-604-0668</a>
-        </div>
-      </div>
-      <div class="final-media reveal">
-        <img src="images/coach-help.webp" alt="" width="600" height="600" loading="lazy">
+    <div class="mesh dark" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="wrap final-inner">
+      <p class="eyebrow reveal"><span class="eyebrow-rule"></span>One last thing</p>
+      <h2 class="display final-h reveal">
+        You deserve to feel<br><em>free, loved and whole</em>
+      </h2>
+      <p class="final-p reveal">
+        Healing is not only possible — it's waiting for you. You are worthy of peace.
+        You are worthy of healthy love. You are worthy of coming home to yourself.
+      </p>
+      <p class="final-sign reveal">I would be honoured to walk beside you.</p>
+      <div class="hero-actions center reveal">
+        <a class="btn btn-rose btn-lg" href="https://calendly.com/cleofestinger/call" target="_blank" rel="noopener">Book your free 20-minute call</a>
+        <a class="btn btn-outline-light" href="tel:+17206040668">Call 720-604-0668</a>
       </div>
     </div>
   </section>
@@ -420,7 +521,8 @@
     </div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="#signs">The Signs</a>
-      <a href="#work">How We Work</a>
+      <a href="#why">Why It Holds</a>
+      <a href="#work">The Work</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a href="https://codependencylifecoach.com/" target="_blank" rel="noopener">Main site</a>
@@ -432,8 +534,8 @@
   </div>
   <div class="wrap footer-legal">
     <p>
-      Coaching is not psychotherapy, counselling or medical treatment, and is not a substitute for them.
-      If you are in immediate danger or crisis, contact your local emergency services.
+      Coaching is not psychotherapy, counselling or medical treatment, and is not a substitute
+      for them. If you are in immediate danger or crisis, contact your local emergency services.
       In the US you can call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) or
       <strong>1-800-799-7233</strong> (National Domestic Violence Hotline).
     </p>
