@@ -48,27 +48,6 @@
   window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
 
-  /* ── quick exit: leave the page without a trace in history ── */
-  var SAFE_URL = 'https://www.google.com/search?q=weather';
-
-  function quickExit() {
-    /* Open a neutral page, then replace this one so Back doesn't return here. */
-    try { window.open(SAFE_URL, '_blank', 'noopener'); } catch (e) { /* popup blocked */ }
-    window.location.replace(SAFE_URL);
-  }
-
-  var exitBtn = document.getElementById('quickExit');
-  if (exitBtn) exitBtn.addEventListener('click', quickExit);
-
-  /* Escape pressed twice within a second also leaves. */
-  var escAt = 0;
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    var now = Date.now();
-    if (now - escAt < 1000) quickExit();
-    escAt = now;
-  });
-
   /* ── FAQ: one answer open at a time ── */
   var faqs = document.querySelectorAll('.faq-list details');
   faqs.forEach(function (item) {
