@@ -12,7 +12,6 @@
       ]
     },
     {
-      "comment": "Asset filenames are not content-hashed, so a cached copy would outlive the HTML it belongs to. Always revalidate; an unchanged file still costs only a 304.",
       "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }

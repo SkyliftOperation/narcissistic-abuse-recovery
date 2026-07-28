@@ -62,6 +62,14 @@ mail provider connected yet. When one is chosen (Formspree, ConvertKit, Klaviyo,
 Mailchimp), a "free book excerpt" section can be added below the FAQ and wired
 to it.
 
+## Caching
+
+Asset filenames carry no content hash, so `vercel.json` makes `/assets/*`
+revalidate on every request — otherwise a returning visitor could pair a
+cached stylesheet with freshly deployed HTML. Unchanged files still return a
+304, so the cost is negligible. If a build step that fingerprints filenames is
+ever added, switch these back to a long `immutable` cache.
+
 ## Notes
 
 - Copy is adapted from the main site so the two read as one brand.
