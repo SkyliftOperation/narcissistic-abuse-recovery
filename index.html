@@ -480,7 +480,7 @@
           myself and why I chose toxic partners. <em>I finally feel free.</em>
         </blockquote>
         <figcaption>
-          <span class="avatar">MR</span>
+          <span class="avatar avatar-illus" style="background-image:url('images/avatar-a.svg')" role="img" aria-label="Illustrated placeholder portrait"></span>
           <span class="who"><strong>M.R.</strong><em>Client</em></span>
         </figcaption>
       </figure>
@@ -506,7 +506,7 @@
             find my voice again.
           </blockquote>
           <figcaption>
-            <span class="avatar">LS</span>
+            <span class="avatar avatar-illus" style="background-image:url('images/avatar-b.svg')" role="img" aria-label="Illustrated placeholder portrait"></span>
             <span class="who"><strong>L.S.</strong><em>Client</em></span>
           </figcaption>
         </figure>
@@ -578,6 +578,50 @@
           <summary>Do you take insurance?</summary>
           <div><p>I don't accept insurance. The initial 20-minute discovery call is complimentary, and we'll discuss the details of working together on that call.</p></div>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ BOOK ═══════════════════════ -->
+  <section class="section resource" id="resource">
+    <div class="wrap resource-grid">
+
+      <div class="resource-media reveal">
+        <img src="images/book.webp" alt="Be You, Be Real, Be Free by Alejandra Festinger" width="940" height="614" loading="lazy">
+      </div>
+
+      <div class="resource-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-rule"></span>Free resource</p>
+        <h2 class="display">Start your healing <em>today</em></h2>
+        <p class="resource-lede">
+          Download a free excerpt from my upcoming book and begin understanding the root
+          causes of codependency and narcissistic abuse, plus the steps to truly break free.
+        </p>
+
+        <form class="resource-form" id="resourceForm" novalidate>
+          <div class="field">
+            <label for="rf-name">Name</label>
+            <input id="rf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="rf-email">Email address</label>
+            <input id="rf-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="rf-phone">Phone <span class="opt">optional</span></label>
+            <input id="rf-phone" name="phone" type="tel" autocomplete="tel" placeholder="720-000-0000">
+          </div>
+          <div class="field">
+            <label for="rf-message">Message <span class="opt">optional</span></label>
+            <textarea id="rf-message" name="message" rows="3" placeholder="Anything you would like me to know"></textarea>
+          </div>
+
+          <button class="btn btn-rose" type="submit">Send me the excerpt</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-fineprint">
+            Your details are used only to send the excerpt and to reply to you. No list, no forwarding.
+          </p>
+        </form>
       </div>
     </div>
   </section>

@@ -183,6 +183,77 @@
     });
   });
 
+  /* ── free-excerpt form ──
+     Point ENDPOINT at a form service (Formspree, Basin, a Vercel route) to
+     capture submissions properly. Until then the form composes an email in
+     the visitor's own mail client, so a request is never silently lost. */
+  var ENDPOINT = '';                      /* e.g. 'https://formspree.io/f/xxxxxxx' */
+  var INBOX = 'operations@skyliftmarketing.com';
+
+  var resourceForm = document.getElementById('resourceForm');
+
+  if (resourceForm) {
+    var status = document.getElementById('formStatus');
+
+    var say = function (message, kind) {
+      status.textContent = message;
+      status.className = 'form-status' + (kind ? ' ' + kind : '');
+    };
+
+    resourceForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var data = new FormData(resourceForm);
+      var name = (data.get('name') || '').trim();
+      var email = (data.get('email') || '').trim();
+      var phone = (data.get('phone') || '').trim();
+      var message = (data.get('message') || '').trim();
+
+      if (!name) { say('Please add your name.', 'err'); resourceForm.name.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        say('Please check your email address.', 'err');
+        resourceForm.email.focus();
+        return;
+      }
+
+      var button = resourceForm.querySelector('button[type="submit"]');
+
+      if (!ENDPOINT) {
+        var body = [
+          'Name: ' + name,
+          'Email: ' + email,
+          phone ? 'Phone: ' + phone : '',
+          message ? '\nMessage:\n' + message : ''
+        ].filter(Boolean).join('\n');
+
+        window.location.href = 'mailto:' + INBOX +
+          '?subject=' + encodeURIComponent('Free excerpt request') +
+          '&body=' + encodeURIComponent(body);
+
+        say('Opening your email app so you can send the request.', 'ok');
+        return;
+      }
+
+      button.disabled = true;
+      say('Sending…');
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, email: email, phone: phone, message: message })
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.status);
+          resourceForm.reset();
+          say('Thank you. The excerpt is on its way to ' + email + '.', 'ok');
+        })
+        .catch(function () {
+          say('That did not go through. Please email ' + INBOX + ' and I will send it over.', 'err');
+        })
+        .then(function () { button.disabled = false; });
+    });
+  }
+
   /* ── reveal on scroll ── */
   var items = document.querySelectorAll('.reveal');
   var revealed = 0;

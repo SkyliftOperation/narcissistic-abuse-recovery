@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Illustrated placeholder portrait">
+  <defs>
+    <clipPath id="b-clip"><circle cx="60" cy="60" r="60"/></clipPath>
+  </defs>
+  <g clip-path="url(#b-clip)">
+    <rect width="120" height="120" fill="#F2F8F5"/>
+    <!-- shoulders -->
+    <path d="M60 74c19 0 34 13 37 30v16H23V104c3-17 18-30 37-30z" fill="#162D4A"/>
+    <!-- hair, shorter bob -->
+    <path d="M60 21c14 0 24 10 24 24v13c0 5-3 9-8 9H44c-5 0-8-4-8-9V45c0-14 10-24 24-24z" fill="#6B4A32"/>
+    <!-- face -->
+    <circle cx="60" cy="51" r="18" fill="#F6CDB4"/>
+    <!-- fringe swept -->
+    <path d="M42 46c2-10 9-17 18-17 7 0 13 4 16 10-5-3-11-4-17-3-7 1-13 5-17 10z" fill="#6B4A32"/>
+    <!-- collar hint -->
+    <path d="M60 74l-6 8 6 6 6-6z" fill="#F1BABF" opacity=".9"/>
+  </g>
+</svg>

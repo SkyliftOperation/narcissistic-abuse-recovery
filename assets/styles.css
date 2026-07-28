@@ -641,6 +641,16 @@ h3{ font-size:1.3rem; line-height:1.25; }
   background-position:25.34% 23.36%;
   box-shadow:0 0 0 1px var(--blush);
 }
+
+/* Drawn stand-ins for the two clients the site identifies only by
+   initials. Deliberately illustrations, not stock photographs, so no real
+   person's face is attached to someone else's testimonial. */
+.avatar-illus{
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 0 0 1px var(--blush);
+}
 .who{ display:flex; flex-direction:column; line-height:1.35; min-width:0; }
 .who strong{
   font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
@@ -722,6 +732,59 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .faq-list details > div{ overflow:hidden; }
 .faq-list p{ margin:0; padding:0 0 1.5rem; font-size:.99rem; }
 
+/* ─────────── free resource ─────────── */
+
+/* cream, not mist: the FAQ directly above is already mist and the two
+   sections ran together */
+.resource{ background:var(--cream); }
+
+.resource-grid{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(2.5rem,6vw,5rem); align-items:center;
+}
+
+.resource-media img{
+  width:100%; max-width:520px; margin-inline:auto;
+  filter:drop-shadow(0 34px 45px rgba(22,45,74,.28));
+}
+
+.resource-copy h2{ margin-bottom:.7rem; }
+/* --body, not --body-soft: cream is darker than white and the softer tone
+   lands at 4.43:1 on it */
+.resource-lede{ font-size:1.05rem; color:var(--body); max-width:34em; margin-bottom:1.9rem; }
+
+.resource-form{ display:grid; gap:.9rem; max-width:30rem; }
+
+.field{ display:grid; gap:.4rem; }
+.field label{
+  font-size:.72rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--navy-2);
+}
+.field .opt{
+  font-weight:400; letter-spacing:.04em; text-transform:none;
+  color:var(--body); font-size:.74rem; margin-left:.35rem;
+}
+.field input, .field textarea{
+  width:100%; font-family:var(--sans); font-size:.98rem; color:var(--ink);
+  background:#fff; border:1.5px solid var(--line); border-radius:12px;
+  padding:.85rem 1rem; resize:vertical;
+  transition:border-color .3s, box-shadow .3s;
+}
+.field input::placeholder, .field textarea::placeholder{ color:#9aa1b1; }
+.field input:focus, .field textarea:focus{
+  outline:none; border-color:var(--rose-dark);
+  box-shadow:0 0 0 3px rgba(184,58,128,.14);
+}
+.field input:user-invalid, .field textarea:user-invalid{ border-color:#C0392B; }
+
+.resource-form .btn{ justify-self:start; margin-top:.35rem; }
+
+.form-status{ margin:0; font-size:.88rem; min-height:1.2em; }
+.form-status.ok{ color:#1E7A4C; }
+.form-status.err{ color:#C0392B; }
+
+.form-fineprint{ margin:0; font-size:.78rem; color:var(--body); }
+
 /* ─────────── final cta ─────────── */
 
 .final-cta{ position:relative; overflow:hidden; background:var(--navy); color:rgba(255,255,255,.75); }
@@ -775,7 +838,7 @@ h3{ font-size:1.3rem; line-height:1.25; }
 
 @media (max-width:1100px){
   .site-nav{ display:none; }
-  .hero-grid, .about-grid, .why-grid, .faq-grid{ grid-template-columns:1fr; }
+  .hero-grid, .about-grid, .why-grid, .faq-grid, .resource-grid{ grid-template-columns:1fr; }
   .why-sticky, .faq-aside{ position:static; }
   /* Copy leads, portrait follows — the headline is the reason to keep reading. */
   .hero-copy{ order:1; }
@@ -891,6 +954,10 @@ h3{ font-size:1.3rem; line-height:1.25; }
   .vid-sound .vid-sound-label{ display:none; }
   .vid-sound{ padding:.5rem; right:.5rem; bottom:.5rem; }
   .vid figcaption strong{ font-size:.98rem; }
+
+  /* free resource */
+  .resource-media img{ max-width:320px; }
+  .resource-form .btn{ justify-self:stretch; }
 
   /* stories */
   .quote-hero{ padding:2.25rem 1.5rem; }
