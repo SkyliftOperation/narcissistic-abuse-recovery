@@ -74,6 +74,104 @@
 
   update();
 
+  /* ── video wall ──
+     Players are injected only when the section comes into view, so four
+     embeds never load on top of the initial page. They start muted (browsers
+     block autoplay with sound anyway); each clip has its own sound toggle,
+     and unmuting one mutes the rest. */
+  var videoGrid = document.getElementById('videoGrid');
+
+  if (videoGrid) {
+    var quiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cards = [].slice.call(videoGrid.querySelectorAll('.vid'));
+
+    var command = function (frame, func) {
+      if (!frame || !frame.contentWindow) return;
+      frame.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: func, args: [] }), '*'
+      );
+    };
+
+    var build = function (card) {
+      if (card.querySelector('iframe')) return;
+      var id = card.getAttribute('data-yt');
+      if (!id) return;
+
+      var params = [
+        'mute=1',
+        'loop=1',
+        'playlist=' + id,       /* loop needs the id repeated */
+        'controls=0',
+        'modestbranding=1',
+        'playsinline=1',
+        'rel=0',
+        'enablejsapi=1',
+        'autoplay=' + (quiet ? '0' : '1')
+      ];
+
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?' + params.join('&');
+      frame.title = card.querySelector('figcaption strong').textContent;
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture';
+      frame.setAttribute('allowfullscreen', '');
+      frame.setAttribute('loading', 'lazy');
+
+      card.querySelector('.vid-holder').appendChild(frame);
+    };
+
+    cards.forEach(function (card) {
+      var btn = card.querySelector('.vid-sound');
+      if (!btn) return;
+
+      btn.setAttribute('aria-label', 'Turn sound on');
+
+      btn.addEventListener('click', function () {
+        var on = btn.getAttribute('aria-pressed') === 'true';
+
+        if (on) {
+          command(card.querySelector('iframe'), 'mute');
+          btn.setAttribute('aria-pressed', 'false');
+          btn.setAttribute('aria-label', 'Turn sound on');
+          return;
+        }
+
+        /* only one clip may be audible */
+        cards.forEach(function (other) {
+          if (other === card) return;
+          var ob = other.querySelector('.vid-sound');
+          command(other.querySelector('iframe'), 'mute');
+          ob.setAttribute('aria-pressed', 'false');
+          ob.setAttribute('aria-label', 'Turn sound on');
+        });
+
+        var frame = card.querySelector('iframe');
+        command(frame, 'unMute');
+        command(frame, 'playVideo');
+        btn.setAttribute('aria-pressed', 'true');
+        btn.setAttribute('aria-label', 'Turn sound off');
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      var vidObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          cards.forEach(build);
+          vidObserver.disconnect();
+        });
+      }, { rootMargin: '200px 0px' });
+      vidObserver.observe(videoGrid);
+
+      /* the observer never fires in a backgrounded tab; build anyway so the
+         section is never left as four empty panels */
+      setTimeout(function () {
+        if (!videoGrid.querySelector('iframe')) cards.forEach(build);
+      }, 4000);
+    } else {
+      cards.forEach(build);
+    }
+  }
+
   /* ── FAQ: one answer open at a time ── */
   var faqs = document.querySelectorAll('.faq-list details');
   faqs.forEach(function (item) {
