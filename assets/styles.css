@@ -651,6 +651,12 @@ h3{ font-size:1.3rem; line-height:1.25; }
   color:var(--blush); margin:1.5rem 0 2.5rem;
 }
 
+/* ─────────── mobile action bar ─────────── */
+
+/* hidden entirely above the phone breakpoint */
+.mobile-bar{ display:none; }
+.cta-short{ display:none; }
+
 /* ─────────── footer ─────────── */
 
 .site-footer{ background:var(--navy-deep); color:rgba(255,255,255,.6); padding:3.5rem 0 2.25rem; }
@@ -715,18 +721,23 @@ h3{ font-size:1.3rem; line-height:1.25; }
   body{ font-size:16px; }
   .section{ padding:clamp(3.5rem,11vw,5rem) 0; }
 
-  /* header */
-  .header-inner{ min-height:66px; gap:.6rem; }
+  /* header — the CTA shrinks to a single word here because the fixed action
+     bar below carries the full call-to-action */
+  .header-inner{ min-height:60px; gap:.6rem; }
   .phone, .brand-text em{ display:none; }
   .header-cta{ margin-left:auto; }
-  .brand-text strong{ font-size:.92rem; white-space:nowrap; }
-  .brand-mark{ width:34px; height:34px; border-radius:10px; font-size:1.12rem; }
-  .btn-sm{ padding:.55rem .95rem; font-size:.62rem; letter-spacing:.07em; }
+  .brand-text strong{ font-size:.9rem; white-space:nowrap; }
+  .brand-mark{ width:32px; height:32px; border-radius:9px; font-size:1.05rem; }
+  .cta-long{ display:none; }
+  .cta-short{ display:inline; }
 
-  /* buttons stack full-width, small ones stay inline */
+  /* buttons stack full-width, small ones stay inline.
+     .btn-sm must come after .btn — equal specificity, so source order decides. */
   .btn{ width:100%; padding:1rem 1.5rem; font-size:.79rem; }
   .btn-lg{ padding:1.05rem 1.5rem; }
-  .btn-sm, .btn-quiet{ width:auto; }
+  .btn-quiet{ width:auto; }
+  .btn-sm{ width:auto; padding:.8rem 1.2rem; font-size:.68rem; letter-spacing:.09em; line-height:1.1; }
+  .header-cta .btn-rose{ box-shadow:none; }
   .hero-actions{ flex-direction:column; align-items:stretch; gap:.75rem; }
 
   /* hero — the mesh orbs are sized for a wide canvas; at phone widths they
@@ -772,7 +783,9 @@ h3{ font-size:1.3rem; line-height:1.25; }
   /* signs + pull quote */
   .sign{ grid-template-columns:2.1rem 1fr; padding:1.5rem 1.15rem; }
   .sign p{ font-size:.99rem; }
-  .pull{ max-width:none; font-size:1.45rem; }
+  /* keep this at the desktop clamp's floor: below 24px the rose italic stops
+     counting as large text and would need a 4.5:1 ratio it cannot reach */
+  .pull{ max-width:none; font-size:1.6rem; }
 
   /* shift table */
   .srow, .shift-legend{ grid-template-columns:1fr; gap:.35rem; }
@@ -803,6 +816,46 @@ h3{ font-size:1.3rem; line-height:1.25; }
   .footer-inner{ flex-direction:column; align-items:flex-start; gap:1.4rem; }
   .footer-nav{ margin-inline:0; gap:1rem 1.25rem; }
   .footer-contact{ flex-wrap:wrap; }
+  .site-footer{ padding-bottom:6rem; }   /* clears the fixed action bar */
+
+  /* fixed call + book bar */
+  .mobile-bar{
+    display:flex; gap:.6rem; align-items:stretch;
+    position:fixed; left:0; right:0; bottom:0; z-index:180;
+    padding:.65rem .8rem calc(.65rem + env(safe-area-inset-bottom, 0px));
+    background:rgba(255,255,255,.93);
+    backdrop-filter:saturate(160%) blur(14px);
+    border-top:1px solid var(--line);
+    box-shadow:0 -10px 30px -18px rgba(22,45,74,.5);
+    transform:translateY(115%);
+    transition:transform .38s var(--ease-out);
+  }
+  .mobile-bar.show{ transform:none; }
+
+  .mobile-bar a{
+    display:inline-flex; align-items:center; justify-content:center; gap:.45rem;
+    border-radius:999px; font-weight:700; letter-spacing:.05em;
+    padding:.85rem 1rem; white-space:nowrap;
+  }
+  .mb-call{
+    flex:0 0 auto;
+    border:1.5px solid var(--blush); color:var(--navy-2);
+    font-size:.78rem;
+  }
+  .mb-call svg{ width:16px; height:16px; fill:currentColor; stroke:none; }
+  .mb-call:active{ background:var(--blush-bg); }
+
+  .mb-book{
+    flex:1 1 auto;
+    background:var(--rose-dark); color:#fff;
+    font-size:.8rem; text-transform:uppercase; letter-spacing:.08em;
+  }
+  .mb-book:active{ background:var(--rose-deep); }
+}
+
+@media (max-width:380px){
+  .mb-call span{ display:none; }        /* icon only on the narrowest phones */
+  .mb-call{ padding-inline:1rem; }
 }
 
 @media (prefers-reduced-motion:reduce){

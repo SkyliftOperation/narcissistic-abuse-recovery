@@ -26,27 +26,53 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ── sticky header + reading progress ── */
+  /* ── sticky header, reading progress, mobile action bar ── */
   var header = document.querySelector('.site-header');
   var bar = document.getElementById('progressBar');
+  var mobileBar = document.getElementById('mobileBar');
+  var heroActions = document.querySelector('.hero-actions');
   var ticking = false;
+
+  function update() {
+    var y = window.scrollY;
+
+    if (header) header.classList.toggle('scrolled', y > 12);
+
+    if (bar) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    }
+
+    /* Reveal the action bar once the hero's own CTA has scrolled past, so the
+       two never compete. Driven by scroll position rather than an observer so
+       it still works if the page loads part-way down. */
+    if (mobileBar) {
+      var trigger = heroActions
+        ? heroActions.getBoundingClientRect().bottom + y
+        : window.innerHeight * 0.8;
+      mobileBar.classList.toggle('show', y > trigger);
+    }
+
+    ticking = false;
+  }
 
   function onScroll() {
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(function () {
-      var y = window.scrollY;
-      if (header) header.classList.toggle('scrolled', y > 12);
-      if (bar) {
-        var max = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
-      }
-      ticking = false;
-    });
+    requestAnimationFrame(update);
   }
+
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
-  onScroll();
+
+  /* requestAnimationFrame is paused while a tab is hidden, which leaves the
+     throttle latched and the bar stuck in whatever state it had. Resync
+     directly when the tab comes back. */
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') update();
+  });
+
+  update();
 
   /* ── FAQ: one answer open at a time ── */
   var faqs = document.querySelectorAll('.faq-list details');
