@@ -173,15 +173,13 @@ h3{ font-size:1.3rem; line-height:1.25; }
 @media (max-width:600px){ .meet-play-glyph{ width:62px; height:62px; } .meet-play-glyph svg{ width:22px; height:22px; } }
 
 /* ─────────── book (Calendly embed) ─────────── */
-.book{ background:var(--mist); }
+.book{ background:var(--cream); }
 .book .section-head{ text-align:center; margin:0 auto clamp(2rem,4vw,3rem); }
 .book .eyebrow{ justify-content:center; }
-.book-embed{
-  min-width:320px; height:700px;
-  border-radius:var(--r-lg); overflow:hidden;
-  background:#fff; box-shadow:var(--sh);
-}
-@media (max-width:768px){ .book-embed{ height:1040px; } }
+/* no overflow:hidden / radius here — it was clipping the widget's corners
+   (e.g. the Privacy Policy link). The Calendly widget carries its own card. */
+.book-embed{ min-width:320px; height:720px; }
+@media (max-width:768px){ .book-embed{ height:1120px; } }
 
 .section{ position:relative; padding:clamp(5rem, 10vw, 9rem) 0; }
 
