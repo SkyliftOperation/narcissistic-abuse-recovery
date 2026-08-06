@@ -176,11 +176,15 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .book{ background:var(--white); }
 .book .section-head{ text-align:center; margin:0 auto clamp(2rem,4vw,3rem); }
 .book .eyebrow{ justify-content:center; }
-/* no overflow:hidden / radius here — it was clipping the widget's corners
-   (e.g. the Privacy Policy link). The Calendly widget carries its own card.
-   Capped width + auto margins keep even breathing room on both sides. */
-.book-embed{ min-width:320px; height:720px; max-width:1040px; margin-inline:auto; }
-@media (max-width:768px){ .book-embed{ height:1120px; } }
+/* No overflow:hidden/radius (it clipped the widget's corners, e.g. Privacy
+   Policy). No min-width, and force the injected iframe to width:100% so the
+   widget can never grow wider than its container and overflow on mobile. */
+.book-embed{ width:100%; max-width:1040px; margin:0 auto; height:720px; }
+.book-embed iframe{ width:100% !important; min-width:0 !important; max-width:100% !important; }
+@media (max-width:768px){
+  .book .wrap{ padding-left:1rem; padding-right:1rem; }
+  .book-embed{ height:1160px; }
+}
 
 .section{ position:relative; padding:clamp(5rem, 10vw, 9rem) 0; }
 
