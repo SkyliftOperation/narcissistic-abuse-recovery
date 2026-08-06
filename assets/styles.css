@@ -134,6 +134,17 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .section-cta{ text-align:center; margin-top:clamp(2.5rem,5vw,3.75rem); }
 .about-cta{ margin-top:1.9rem; }
 
+/* ─────────── meet (intro video) ─────────── */
+.meet{ background:var(--mist); }
+.meet-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(2.5rem,6vw,5rem); align-items:center; }
+.meet-note{ color:var(--body); font-size:1.02rem; margin:1.25rem 0 1.9rem; max-width:34ch; }
+.meet-video{ margin:0; }
+.meet-video video{
+  width:100%; aspect-ratio:16 / 9; display:block; object-fit:cover;
+  background:var(--navy); border-radius:var(--r-lg); box-shadow:var(--sh-lg);
+}
+@media (max-width:900px){ .meet-grid{ grid-template-columns:1fr; gap:2rem; } }
+
 .section{ position:relative; padding:clamp(5rem, 10vw, 9rem) 0; }
 
 .section-head{ max-width:720px; margin:0 auto clamp(3rem,6vw,4.5rem); text-align:center; }
