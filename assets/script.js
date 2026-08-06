@@ -172,6 +172,34 @@
     }
   }
 
+  /* ── meet intro video: branded play button ──
+     Native <video controls> works with no JS. When JS runs we hide the default
+     controls, lay a rose play button over the poster, then reveal the controls
+     once it starts and drop the overlay. */
+  var meetVideo = document.querySelector('.meet-video video');
+
+  if (meetVideo) {
+    meetVideo.controls = false;
+
+    var meetPlay = document.createElement('button');
+    meetPlay.type = 'button';
+    meetPlay.className = 'meet-play';
+    meetPlay.setAttribute('aria-label', 'Play the introduction video');
+    meetPlay.innerHTML =
+      '<span class="meet-play-glyph" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none"/></svg>' +
+      '</span>';
+
+    meetPlay.addEventListener('click', function () {
+      meetVideo.controls = true;
+      var played = meetVideo.play();
+      if (played && played.catch) played.catch(function () {});
+      meetPlay.remove();
+    });
+
+    meetVideo.parentNode.appendChild(meetPlay);
+  }
+
   /* ── FAQ: one answer open at a time ── */
   var faqs = document.querySelectorAll('.faq-list details');
   faqs.forEach(function (item) {
