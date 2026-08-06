@@ -702,6 +702,48 @@ h3{ font-size:1.3rem; line-height:1.25; }
   font-family:var(--serif); font-size:1.32rem; line-height:1.45; color:var(--navy-2);
 }
 
+/* featured testimonials — two quote cards set diagonally against two lifestyle
+   images, echoing the source site. Initial-only clients keep prominence without
+   a face pinned to the quote. */
+.quote-feature{
+  display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;
+  margin:0 0 1.5rem;
+}
+.qf-quote{
+  display:flex; flex-direction:column; justify-content:center;
+  padding:clamp(2rem,4vw,3rem); border-radius:var(--r-lg);
+  min-height:clamp(15rem,25vw,20rem);
+}
+.qf-quote blockquote{
+  margin:0 0 1.4rem; font-family:var(--serif);
+  font-size:clamp(1.35rem,2.4vw,1.9rem); line-height:1.4; letter-spacing:-.01em;
+}
+.qf-quote em{ font-style:italic; }
+.qf-cite{
+  margin:0; font-size:.8rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--rose-dark);
+}
+.qf-cite span{
+  display:block; margin-top:.2rem; font-weight:400; font-size:.82rem;
+  letter-spacing:0; text-transform:none; font-style:italic; color:var(--body);
+}
+.qf-quote.light{ background:var(--mint); }
+.qf-quote.light blockquote{ color:var(--navy-2); }
+.qf-quote.light em{ color:var(--rose-dark); }
+.qf-quote.dark{
+  background:var(--navy);
+  background-image:radial-gradient(30rem 22rem at 88% -20%, rgba(213,75,150,.35) 0%, transparent 65%);
+}
+.qf-quote.dark blockquote{ color:#fff; }
+.qf-quote.dark em{ color:var(--blush); }
+.qf-quote.dark .qf-cite{ color:var(--blush); }
+.qf-quote.dark .qf-cite span{ color:rgba(255,255,255,.6); }
+.qf-photo{
+  border-radius:var(--r-lg); min-height:clamp(15rem,25vw,20rem);
+  background-size:cover; background-position:center top; background-repeat:no-repeat;
+  box-shadow:var(--sh);
+}
+
 /* ─────────── faq ─────────── */
 
 .faq{ background:var(--mist); }
@@ -846,6 +888,8 @@ h3{ font-size:1.3rem; line-height:1.25; }
   .about-media{ max-width:440px; margin-inline:auto; }
   .entry{ grid-template-columns:1fr; row-gap:.6rem; }
   .quote-wall{ columns:1; }
+  .quote-feature{ grid-template-columns:1fr; gap:1.15rem; }
+  .qf-photo, .qf-quote{ min-height:14rem; }
   .q-card, .quote-hero{ margin-bottom:1.15rem; }
   /* four vertical frames get too narrow to read below this width */
   .video-grid{ grid-template-columns:repeat(2,1fr); }
