@@ -709,6 +709,11 @@ h3{ font-size:1.3rem; line-height:1.25; }
   display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;
   margin:0 0 1.5rem;
 }
+/* DOM order stays quote-photo-quote-photo so the stacked mobile view alternates
+   instead of clumping both photos together. On the two-column desktop grid we
+   swap the last quote and photo so it still reads diagonally. */
+.quote-feature > :nth-child(3){ order:2; }
+.quote-feature > :nth-child(4){ order:1; }
 .qf-quote{
   display:flex; flex-direction:column; justify-content:center;
   padding:clamp(2rem,4vw,3rem); border-radius:var(--r-lg);
@@ -889,6 +894,7 @@ h3{ font-size:1.3rem; line-height:1.25; }
   .entry{ grid-template-columns:1fr; row-gap:.6rem; }
   .quote-wall{ columns:1; }
   .quote-feature{ grid-template-columns:1fr; gap:1.15rem; }
+  .quote-feature > :nth-child(3), .quote-feature > :nth-child(4){ order:0; }
   .qf-photo, .qf-quote{ min-height:14rem; }
   .q-card, .quote-hero{ margin-bottom:1.15rem; }
   /* four vertical frames get too narrow to read below this width */
