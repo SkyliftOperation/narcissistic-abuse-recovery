@@ -164,7 +164,12 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .meet-play:hover .meet-play-glyph{ transform:scale(1.09); }
 .meet-play:focus-visible .meet-play-glyph{ outline:3px solid var(--blush); outline-offset:4px; }
 .meet-play-glyph svg{ width:27px; height:27px; margin-left:3px; }
-@media (max-width:900px){ .meet-grid{ grid-template-columns:1fr; gap:2rem; } }
+@media (max-width:900px){
+  /* stack with the video first, then the copy and its button */
+  .meet-grid{ grid-template-columns:1fr; gap:2rem; }
+  .meet-video{ order:1; }
+  .meet-copy{ order:2; }
+}
 @media (max-width:600px){ .meet-play-glyph{ width:62px; height:62px; } .meet-play-glyph svg{ width:22px; height:22px; } }
 
 .section{ position:relative; padding:clamp(5rem, 10vw, 9rem) 0; }
@@ -461,10 +466,19 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .entry{
   position:relative;
   display:grid; grid-template-columns:.9fr 1.1fr; gap:1.5rem 2.5rem;
-  align-items:baseline; padding:2.15rem .5rem;
+  align-items:start; padding:2.15rem .5rem;
   border-bottom:1px solid var(--line);
   transition:background-color .45s var(--ease), padding-left .45s var(--ease);
 }
+/* icon + title in the entry's first column */
+.entry-lead{ display:flex; align-items:center; gap:.9rem; }
+.entry-icon{
+  flex:none; display:grid; place-items:center;
+  width:46px; height:46px; border-radius:50%;
+  background:var(--blush-bg); color:var(--rose-dark);
+}
+.entry-icon svg{ width:24px; height:24px; }
+.entry:hover .entry-icon{ background:var(--blush); color:var(--rose-deep); }
 .entry::before{
   content:""; position:absolute; left:0; top:0; bottom:-1px; width:2px;
   background:var(--rose); transform:scaleY(0); transform-origin:bottom;
