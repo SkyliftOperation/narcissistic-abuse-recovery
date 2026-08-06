@@ -185,9 +185,12 @@ h3{ font-size:1.3rem; line-height:1.25; }
   display:grid; place-items:center; color:var(--body-soft); font-size:.92rem;
 }
 .book-embed iframe{ position:relative; width:100% !important; min-width:0 !important; max-width:100% !important; }
-@media (max-width:768px){
+/* On phones and small tablets, cap the widget width so Calendly always renders
+   its single-column (stacked) layout, which fits any screen and never gets
+   clipped. Two-column only kicks in on wider desktops where there's room. */
+@media (max-width:767px){
   .book .wrap{ padding-left:1rem; padding-right:1rem; }
-  .book-embed{ height:1160px; }
+  .book-embed{ max-width:460px; height:1180px; }
 }
 
 .section{ position:relative; padding:clamp(5rem, 10vw, 9rem) 0; }
