@@ -178,11 +178,7 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .book .eyebrow{ justify-content:center; }
 /* Let Calendly size its own iframe (no width override — forcing it smaller
    after render clipped the content). No overflow:hidden/radius either. */
-.book-embed{ position:relative; width:100%; max-width:1040px; margin:0 auto; height:760px; }
-.book-embed::before{
-  content:"Loading the calendar\2026"; position:absolute; inset:0;
-  display:grid; place-items:center; color:var(--body-soft); font-size:.92rem;
-}
+.book-embed{ width:100%; max-width:1040px; margin:0 auto; height:760px; }
 /* On phones/small tablets, cap the width so Calendly renders its single-column
    (stacked) layout, which fits any screen and is never clipped. */
 @media (max-width:767px){
