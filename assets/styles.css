@@ -179,8 +179,12 @@ h3{ font-size:1.3rem; line-height:1.25; }
 /* No overflow:hidden/radius (it clipped the widget's corners, e.g. Privacy
    Policy). No min-width, and force the injected iframe to width:100% so the
    widget can never grow wider than its container and overflow on mobile. */
-.book-embed{ width:100%; max-width:1040px; margin:0 auto; height:720px; }
-.book-embed iframe{ width:100% !important; min-width:0 !important; max-width:100% !important; }
+.book-embed{ position:relative; width:100%; max-width:1040px; margin:0 auto; height:720px; }
+.book-embed::before{
+  content:"Loading the calendar\2026"; position:absolute; inset:0;
+  display:grid; place-items:center; color:var(--body-soft); font-size:.92rem;
+}
+.book-embed iframe{ position:relative; width:100% !important; min-width:0 !important; max-width:100% !important; }
 @media (max-width:768px){
   .book .wrap{ padding-left:1rem; padding-right:1rem; }
   .book-embed{ height:1160px; }
