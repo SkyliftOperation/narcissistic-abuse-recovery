@@ -298,7 +298,10 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .seal > svg{
   position:absolute; inset:0; width:100%; height:100%;
   stroke:none;
+  transform-origin:50% 50%;
+  animation:sealSpin 18s linear infinite;
 }
+@keyframes sealSpin{ to{ transform:rotate(360deg); } }
 .seal text{
   font-family:var(--sans); font-size:8.2px; font-weight:700;
   fill:var(--navy-2); stroke:none;
