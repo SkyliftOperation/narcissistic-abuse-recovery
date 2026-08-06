@@ -173,7 +173,7 @@ h3{ font-size:1.3rem; line-height:1.25; }
 @media (max-width:600px){ .meet-play-glyph{ width:62px; height:62px; } .meet-play-glyph svg{ width:22px; height:22px; } }
 
 /* ─────────── book (Calendly embed) ─────────── */
-.book{ background:var(--blush-bg); }
+.book{ background:var(--white); }
 .book .section-head{ text-align:center; margin:0 auto clamp(2rem,4vw,3rem); }
 .book .eyebrow{ justify-content:center; }
 /* no overflow:hidden / radius here — it was clipping the widget's corners
