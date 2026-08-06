@@ -130,6 +130,10 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .btn-outline-light{ background:transparent; color:#fff; border-color:rgba(241,186,191,.5); }
 .btn-outline-light:hover{ background:rgba(241,186,191,.14); border-color:var(--blush); transform:translateY(-3px); }
 
+/* per-section call to action — a centred booking button beneath a section's body */
+.section-cta{ text-align:center; margin-top:clamp(2.5rem,5vw,3.75rem); }
+.about-cta{ margin-top:1.9rem; }
+
 .section{ position:relative; padding:clamp(5rem, 10vw, 9rem) 0; }
 
 .section-head{ max-width:720px; margin:0 auto clamp(3rem,6vw,4.5rem); text-align:center; }
