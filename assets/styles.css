@@ -344,7 +344,10 @@ h3{ font-size:1.3rem; line-height:1.25; }
   position:absolute; left:-2.6rem; bottom:3.5rem;
   width:118px; height:118px; display:grid; place-items:center;
   background:#fff; border-radius:50%; box-shadow:var(--sh);
+  text-decoration:none; cursor:pointer;
 }
+.seal:hover{ transform:scale(1.04); }
+.seal{ transition:transform .3s var(--ease); }
 /* child combinator only: a descendant selector here also caught the play
    icon inside .seal-core and hid it. */
 .seal > svg{
@@ -508,8 +511,8 @@ h3{ font-size:1.3rem; line-height:1.25; }
 
 .watch{ background:#fff; }
 
-/* four across; the clips are vertical, so the frames are too */
-.video-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+/* three across; the clips are vertical, so the frames are too */
+.video-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
 
 .vid{ margin:0; }
 
@@ -520,8 +523,10 @@ h3{ font-size:1.3rem; line-height:1.25; }
 }
 .vid-frame iframe{
   position:absolute; inset:0; width:100%; height:100%; border:0;
-  /* scale past the player chrome so the frame reads as clean footage */
-  transform:scale(1.02);
+  /* enlarge from the bottom so YouTube's title + channel/subscriber chrome
+     at the top is pushed above the frame and clipped by overflow:hidden */
+  transform-origin:bottom center;
+  transform:scale(1.13);
 }
 
 /* Placeholder until the player is injected. Scoped to :empty — as a plain
@@ -574,6 +579,15 @@ h3{ font-size:1.3rem; line-height:1.25; }
 .vid figcaption span{
   display:block; margin-top:.3rem; font-size:.74rem; color:var(--body);
 }
+.vid figcaption .vid-link{
+  display:inline-flex; align-items:center; gap:.35rem; margin-top:.6rem;
+  font-family:var(--sans); font-size:.68rem; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--rose-dark); text-decoration:none;
+  transition:color .25s, gap .25s var(--ease);
+}
+.vid figcaption .vid-link:hover,
+.vid figcaption .vid-link:focus-visible{ color:var(--rose-deep); gap:.55rem; }
 
 .watch-note{
   margin:2.5rem 0 0; text-align:center;
