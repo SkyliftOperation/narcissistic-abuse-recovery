@@ -282,6 +282,40 @@
     });
   }
 
+  /* ── lazy-load the Calendly widget ──
+     The inline widget pulls a heavy third-party iframe, so hold it back until the
+     visitor nears the booking section or taps a booking button. Keeps the initial
+     page load light without hurting how fast the form is there when wanted. */
+  var calWidget = document.querySelector('.calendly-inline-widget');
+  if (calWidget) {
+    var calDone = false;
+    var loadCalendly = function () {
+      if (calDone) return;
+      calDone = true;
+      var s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js';
+      s.async = true;
+      document.body.appendChild(s);
+    };
+
+    /* every booking CTA scrolls here — start loading the moment one is tapped */
+    [].forEach.call(document.querySelectorAll('a[href="#book"]'), function (a) {
+      a.addEventListener('click', loadCalendly, { once: true });
+    });
+
+    if ('IntersectionObserver' in window) {
+      var calObs = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          loadCalendly();
+          calObs.disconnect();
+        }
+      }, { rootMargin: '700px 0px' });
+      calObs.observe(calWidget);
+    } else {
+      loadCalendly();
+    }
+  }
+
   /* ── reveal on scroll ── */
   var items = document.querySelectorAll('.reveal');
   var revealed = 0;
