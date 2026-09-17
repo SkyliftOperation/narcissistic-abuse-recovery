@@ -292,6 +292,12 @@
     var loadCalendly = function () {
       if (calDone) return;
       calDone = true;
+      /* warm the connections only now that we actually need Calendly */
+      ['https://assets.calendly.com', 'https://calendly.com'].forEach(function (href) {
+        var l = document.createElement('link');
+        l.rel = 'preconnect'; l.href = href; l.crossOrigin = '';
+        document.head.appendChild(l);
+      });
       var s = document.createElement('script');
       s.src = 'https://assets.calendly.com/assets/external/widget.js';
       s.async = true;
